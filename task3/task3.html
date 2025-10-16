@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: The movie</title>
+    <style>
+        td[scope="row"] {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- Table -->
+    <table border="1">
+        <colgroup>
+            <col span="1" style="background-color:lightgray;">
+            <col span="1" style="background-color:lightblue;">
+            <col span="1" style="background-color: green;">
+            <col span="1" style="background-color: pink;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Movie Name</th>
+                <th>Direactor</th>
+                <th>Hero</th>
+                <th>Heroine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OG</td>
+                <td>Sugith</td>
+                <td>Pavan Kalyan</td>
+                <td>Priyanka</td>
+            </tr>
+            <tr>
+                <td>Bahubali</td>
+                <td>Rajamouli</td>
+                <td>Prabhas</td>
+                <td>Thammana</td>
+            </tr>
+            <tr>
+                <td>Devara</td>
+                <td>Koratala Siva</td>
+                <td>NTR</td>
+                <td>Jhanavi Kapoor</td>
+            </tr>
+             <tr>
+                <td>Khaleja</td>
+                <td>Trivikram</td>
+                <td>Mahash Babu</td>
+                <td>Anushka Shetty</td>
+            </tr>
+             <tr>
+                <td>Rangasthalam</td>
+                <td>Chitti Babu</td>
+                <td>Ram Charan</td>
+                <td>Samantha</td>
+            </tr>
+        </tbody>
+    </table>
+   <!-- Accessibility Features -->
+    <table border="1" style="margin-top:20px;">
+        <caption>Employee Information</caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row">1</td>
+                <td>Akhil Raj</td>
+                <td>Web Developer</td>
+            </tr>
+            <tr>
+                <td scope="row">2</td>
+                <td>Prasad</td>
+                <td>Scrum master</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">End of Employee List</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+        
+        .education-entry {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .skill-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        
+        .skill-level {
+            margin-top: 5px;
+            width: 100%;
+        }
+        
+        .range-container {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        
+        .range-value {
+            margin-left: 10px;
+            font-weight: bold;
+            color: #3498db;
+            min-width: 30px;
+        }
+        
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload-btn {
+            display: block;
+            padding: 12px 20px;
+            background: #ecf0f1;
+            border: 1px dashed #bdc3c7;
+            border-radius: 5px;
+            text-align: center;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload-btn:hover {
+            background: #dfe6e9;
+        }
+        
+        .declaration {
+            display: flex;
+            align-items: flex-start;
+            margin: 20px 0;
+        }
+        
+        .declaration input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Professional Resume Form</h1>
+        
+        <form id="resumeForm">
+            <!-- Personal Information Section -->
+            <h2>Personal Information</h2>
+            
+            <div class="form-group">
+                <label for="name" class="required">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob" class="required">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            
+            <!-- Education Section -->
+            <h2>Education</h2>
+            
+            <div class="education-entry">
+                <div class="form-group">
+                    <label for="degree" class="required">Degree/Certificate</label>
+                    <input type="text" id="degree" name="degree" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="year" class="required">Year of Completion</label>
+                    <input type="number" id="year" name="year" min="1900" max="2030" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="percentage" class="required">Percentage/GPA</label>
+                    <input type="text" id="percentage" name="percentage" required>
+                </div>
+            </div>
+            </div>
+            </div>
+            
+            <!-- Upload Resume Section -->
+            <h2>Upload Resume</h2>
+            
+            <div class="form-group">
+                <label for="resume" class="required">Upload your resume (PDF, DOC, DOCX)</label>
+                <div class="file-upload">
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                    <div class="file-upload-btn">Choose File</div>
+                </div>
+            </div>
+            
+            <!-- Declaration Section -->
+            <h2>Declaration</h2>
+            
+            <div class="declaration">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree" class="required">I hereby declare that the information provided above is true and accurate to the best of my knowledge.</label>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Update range value display when slider changes
+        document.querySelectorAll('.skill-level-range').forEach(slider => {
+            slider.addEventListener('input', function() {
+                const valueDisplay = this.nextElementSibling;
+                valueDisplay.textContent = this.value;
+            });
+        });
+        
+        // Form submission handler
+        document.getElementById('resumeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const requiredFields = document.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.style.borderColor = '#e74c3c';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (!document.getElementById('agree').checked) {
+                isValid = false;
+                alert('Please agree to the declaration before submitting.');
+            }
+            
+            if (isValid) {
+                alert('Form submitted successfully!');
+                // In a real application, you would send the form data to a server here
+                // this.submit();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // File upload display
+        document.getElementById('resume').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            this.nextElementSibling.textContent = fileName;
+        });
+    </script>
+</body>
+</html>
