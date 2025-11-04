@@ -1,0 +1,76 @@
+.box{
+    height: 300px;
+    width: 300px;
+    background-color: rgb(243, 44, 110);
+    transition-property: transform;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    
+    
+}
+.box:hover{
+     transform:translateX(60px) rotate(125deg);
+     
+    
+}
+.btn button{
+    height: 50px;
+    width: 100px;
+    background-color: beige;
+    transition-property: transform;
+    transition-duration: 0s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+    transform: scale(1);
+}
+.btn button:hover{
+    transform: scale(1.2);
+
+}
+.circle{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: rgb(39, 246, 88);
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+    
+}
+.circle:hover{
+    transform: translateY(30px)rotate(100deg);
+}
+@keyframes zoom {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform:translateY(-50px)
+    }
+    
+}
+.rectangle{
+    height: 300px;
+    width: 150px;
+    margin-left: 500px;
+    background-color: rgb(39, 168, 243);
+    transition: transform;
+    transition-delay: 0s;
+    animation: zoom 1s ease-in-out infinite;
+}
+
+.img img{
+    height: 200px;
+    transition: transform;
+    transition-delay: 0s;
+    transform: scale(1);
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
+    margin-left: 800px;
+
+}
+.img img:hover{
+   transform: scale(2) rotate(20deg);
+}
