@@ -1,0 +1,80 @@
+:root{
+
+}
+.color{
+     background-color: white;
+     
+}
+.pieces{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70;
+    width: 700px;
+    margin-left: 250px;
+    
+}
+.piece1{
+    background-color:grey;
+    font-size: 50px;
+    text-align:center;
+}
+.piece1:hover{
+    background-color: blueviolet;
+}
+.piece2{
+    background-color:beige;
+    font-size: 50px;
+   text-align: center;
+}
+.piece2:hover{
+    background-color: blueviolet;
+}
+.pieces2{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
+.pieces3{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
+.pieces4{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
+.pieces5{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
+.pieces6{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
+.pieces7{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
+.pieces8{
+     display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    height: 70px;
+    width: 700px;
+    margin-left: 250px;
+}
