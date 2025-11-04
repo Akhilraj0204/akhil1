@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: cadetblue;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Color Pulse Buttons */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pulse-btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pulse-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+            transition: all 0.4s ease;
+            border-radius: 50px;
+        }
+
+        .pulse-btn:hover::before {
+            transform: scale(1.1);
+            opacity: 0;
+        }
+
+        .pulse-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-1 {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        }
+
+        .btn-2 {
+            background: linear-gradient(45deg, #38ef7d, #11998e);
+        }
+
+        .btn-3 {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+
+        /* Spinner Buttons */
+        .spinner-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .spinner-btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spinner-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .spinner-btn::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .spinner-btn:hover::after {
+            opacity: 1;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Card Flip */
+        .flip-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            perspective: 1000px;
+        }
+
+        .flip-card {
+            width: 280px;
+            height: 350px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .flip-card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front, .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-front {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .flip-back {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            transform: rotateY(180deg);
+        }
+
+        .flip-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .flip-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .flip-text {
+            text-align: center;
+            line-height: 1.6;
+        }
+     
+    </style>
+</head>
+
+
+        <!-- Color Pulse Buttons -->
+        <section id="buttons">
+            <h2>Color Pulse Buttons</h2>
+            <div class="buttons-container">
+                <button class="pulse-btn btn-1">Pulse Red</button>
+                <button class="pulse-btn btn-2">Pulse Green</button>
+                <button class="pulse-btn btn-3">Pulse Blue</button>
+            </div>
+        </section>
+
+        <!-- Spinner Buttons -->
+        <section id="spinners">
+            <h2>Spinner on Hover</h2>
+            <div class="spinner-container">
+                <button class="spinner-btn">Hover for Spinner</button>
+                <button class="spinner-btn">Try This Button</button>
+                <button class="spinner-btn">Another Example</button>
+            </div>
+        </section>
+
+        <!-- Card Flip -->
+        <section id="flip">
+            <h2>Flip Cards</h2>
+            <div class="flip-container">
+                <div class="flip-card">
+                    <div class="flip-front">
+                        <div class="flip-icon">🌞</div>
+                        <h3 class="flip-title">Front Side</h3>
+                        <p class="flip-text">Hover to see the back of this card with more information.</p>
+                    </div>
+                    <div class="flip-back">
+                        <div class="flip-icon">🌙</div>
+                        <h3 class="flip-title">Back Side</h3>
+                        <p class="flip-text">This is the reverse side of the card.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
