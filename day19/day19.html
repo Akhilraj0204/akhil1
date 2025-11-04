@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day19</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 100px;
+            left:100px;
+            background-color: aqua;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        .box1{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 50px;
+            left:50px;
+            background-color:greenyellow;
+            z-index: 0;
+            opacity: 0.8;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 100px;
+            left:100px;
+            background-color:green;
+            z-index: 1;
+            opacity: 0.8;
+        }
+        .box3{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 150px;
+            left:150px;
+            background-color:burlywood;
+            z-index: 2;
+            opacity: 0.8;
+        }
+        .box4{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 200px;
+            left:200px;
+            background-color:red;
+            z-index: 3;
+            opacity: 0.8;
+        }
+        .box5{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            top: 250px;
+            left:250px;
+            background-color:rebeccapurple;
+            z-index:4;
+            opacity: 0.8;
+        }
+        .box6{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            margin-right: 500px;
+            top: 50px;
+            right:50px;
+            background-color:rebeccapurple;
+            z-index:2;
+            opacity: 0.8;
+        }
+        .box7{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            margin-right: 500px;
+            top: 100px;
+            right:100px;
+            background-color:purple;
+            z-index:1;
+            opacity: 0.8;
+        }
+        .box8{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            margin-right: 500px;
+            top: 150px;
+            right:150px;
+            background-color:blue;
+            z-index:0;
+            opacity: 0.8;
+        }
+        .box9{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            margin-right: 500px;
+            top: 200px;
+            right:200px;
+            background-color:yellow;
+            z-index:-1;
+            opacity: 0.8;
+        }
+        .card{
+            padding:500px;
+        }
+        .card1{
+           height: 300px;
+           width: 500px;
+            background-color: lightblue;
+            box-shadow: 5px 5px lightgray;
+            border-radius: 50px;
+        }
+        .badge{
+            position: absolute;
+            padding: 8px 20px;
+            font-weight: bold;
+            right: 300px;
+            top: 530px;
+            z-index:0;
+            background-color: black;
+            color: white;
+            border-radius: 50px;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+        button{
+            margin-left: 500px;
+            padding: 10px;
+            font-size: 24px;
+        }
+        a button:hover{
+            background-color: aqua;
+        }
+        a button:active{
+            background-color:darkblue;
+        }
+        p::first-letter{
+            font-size: 40px;
+            color: green;
+        }
+        ul{
+            list-style: none;
+        }
+        li:nth-child(1){
+            color: green;
+            font-size: 20px;
+        }
+        li::before{
+            content: "👉";
+        }
+        li:nth-child(2){
+            color: blueviolet;
+            font-size: 20px;
+        }
+        li:nth-child(3){
+            color: red;
+            font-size: 20px;
+        }
+        li:nth-child(4){
+            color: yellow;
+            font-size: 20px;
+        }
+        li:nth-child(5){
+            color: blue;
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+    <div class="box7"></div>
+    <div class="box8"></div>
+    <div class="box9"></div>
+    <section class="card">
+        <div class="card1">
+             <span class="badge">New</span>
+        </div>
+    </section>
+    <section class="btn">
+        <a href="https://en.wikipedia.org/wiki/Samantha_Ruth_Prabhu" target="new"><button>SAM</button></a>
+    </section><br><br>
+    <div>
+        <p>Samantha Ruth Prabhu is an Indian actress who works predominantly in Telugu and Tamil films.</p>
+        <p>And One of South India's highest-paid actresses, Samantha is the recipient of several accolades, including four Filmfare Awards South, two Nandi Awards.</p>
+        <p>My Favourite actress</p>
+    </div>
+    <ul>
+        <li class="a">Akhil</li>
+        <li class="b">Abhi</li>
+        <li class="c">Ashok</li>
+        <li class="d">Ahmed</li>
+        <li class="e">Annet</li>
+    </ul>
+    
+    
+</body>
+</html>
