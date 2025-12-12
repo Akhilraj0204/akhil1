@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Patient List</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+      body {
+       /* background: #EEAECA;
+       background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        font-family: Arial; */
+        background: url(pngtree_municipal-hospital-and-clinic-building-with-ambulance_21567704.png);
+      }
+      h1 {
+        text-align: center;
+      }
+      .form-container {
+        width: 350px;
+        margin: auto;
+        /* background: rgba(255,255,255,0.1); */
+        /* background: #EEAECA; */
+        /* background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 20px;
+      }
+      .input {
+        background-color:#00788D;
+        margin-left: 10%;
+        padding: 10px 40px 10px 70px;
+        color: white;
+        border-radius: 50px;
+        margin-top: 15px;
+      }
+      input::placeholder{
+        color: white;
+      }
+      .btn1 {
+        color: white;
+        background-color: #00788D;
+        border-radius: 50px;
+        padding: 5px;
+        font-size: 18px;
+        margin-left: 35%;
+        margin-top: 10px;
+      }
+      table {
+        margin: 30px auto;
+        width: 80%;
+        border-collapse: collapse;
+        background: #00788D;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      th, td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background:#00788D;
+      }
+      .delBtn img {
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        width: 24px;
+      }
+      .editBtn img {
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        width: 24px;
+      }
+      .delBtn {
+        border: none;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0.377);
+      }
+      .editBtn {
+        border: none;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0.37);
+      }
+      h2 {
+        color: #222;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="form-container">
+      <form id="empForm">
+        <h2 style="text-align:center;">Patient's List</h2>
+
+        <input id="Input0" class="input" type="text" placeholder="Patient Name" />
+        <input id="Input1" class="input" type="text" placeholder="Patient In-Time" />
+        <input id="Input2" class="input" type="text" placeholder="Patient Out-Time" />
+        <input id="Input3" class="input" type="text" placeholder="Total Bill" /><br><br>
+
+        <button id="addBtn" class="btn1">Register</button>
+      </form>
+    </div>
+    
+    <table id="empTable">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Patient In-Time</th>
+          <th>Patient Out-Time</th>
+          <th>Total Bill</th>
+          <th>EDIT/DELETE</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      let input = document.querySelector("#Input0");
+      let input1 = document.querySelector("#Input1");
+      let input2 = document.querySelector("#Input2");
+      let input3 = document.querySelector("#Input3");
+      let addBtn = document.querySelector("#addBtn");
+      let tableBody = document.querySelector("#empTable tbody");
+
+      addBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        let name = input.value.trim();
+        let timeIn = input1.value.trim();
+        let timeOut = input2.value.trim();
+        let bill = input3.value.trim();
+
+        if (name === "" || timeIn === "" || timeOut === "" || bill === "") {
+          alert("Please fill all inputs");
+          return;
+        }
+
+        let row = document.createElement("tr");
+
+        row.innerHTML =
+          "<td>" + name + "</td>" +
+          "<td>" + timeIn + "</td>" +
+          "<td>" + timeOut + "</td>" +
+          "<td>" + bill + "</td>" +
+          "<td>" +
+            "<button class='editBtn'><i class='fa-regular fa-pen-to-square'></i></button> " +
+            "<button class='delBtn'><i class='fa-solid fa-trash'></i></button>" +
+          "</td>";
+
+        tableBody.appendChild(row);
+
+        /* DELETE */
+        row.querySelector(".delBtn").onclick = function () {
+          row.remove();
+        };
+
+        /* EDIT */
+        row.querySelector(".editBtn").onclick = function () {
+          input.value = name;
+          input1.value = timeIn;
+          input2.value = timeOut;
+          input3.value = bill;
+          row.remove();
+        };
+
+        input.value = "";
+        input1.value = "";
+        input2.value = "";
+        input3.value = "";
+      });
+    </script>
+  </body>
+</html>
