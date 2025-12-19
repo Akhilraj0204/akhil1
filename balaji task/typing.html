@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Typing Test</title>
+  <style>
+    body{
+      font-family: sans-serif;
+      background: #EEAECA;
+      background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .box{
+      width:360px;
+      background:#ffffff;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+    h4{
+      text-align:center;
+      margin-bottom:15px;
+      color:#2d3436;
+    }
+    .given{
+      background:#f1f2f6;
+      padding:12px;
+      font-size:14px;
+      margin-bottom:12px;
+      border-left:4px solid #0984e3;
+      line-height:1.4;
+    }
+    .time{
+      text-align:center;
+      font-weight:bold;
+      margin-bottom:10px;
+      color:#d63031;
+    }
+    textarea{
+      width:100%;
+      height:90px;
+      padding:8px;
+      border-radius:5px;
+      border:1px solid #ccc;
+      resize:none;
+      font-size:14px;
+    }
+    textarea:focus{
+      outline:none;
+      border-color:#0984e3;
+    }
+    button{
+      width:100%;
+      margin-top:12px;
+      padding:8px;
+      background:#0984e3;
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      font-size:15px;
+      cursor:pointer;
+    }
+    button:hover{
+      background:#0652dd;
+    }
+    #result{
+      margin-top:12px;
+      background:#dfe6e9;
+      padding:10px;
+      border-radius:5px;
+      text-align:center;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h4>2 Min Typing Test</h4>
+
+  <div class="given" id="givenText">
+    Samantha was born on 28 April 1987 to Joseph Prabhu and Ninette. Her father is a Telugu, and her mother is a Malayali.[8][9] She was born and brought up in the Pallavaram neighborhood of Chennai, Tamil Nadu,[10] as the youngest child of the family, with two elder brothers, Jonathan and David. She can speak both Tamil and Telugu fluently.[8][11]
+
+    Samantha was schooled at Holy Angels Anglo Indian Higher Secondary School, Chennai, and then completed a degree in commerce at Stella Maris College, Chennai.[8][12] Towards the end of her undergraduate degree, she became involved in modeling, notably working with Naidu Hall, through which she was first spotted by filmmaker Ravi Varman.
+  </div>
+
+  <p class="time">Time Left: <span id="time">120</span> sec</p>
+
+  <textarea id="area" placeholder="Type the above text..." disabled></textarea>
+
+  <button onclick="start()">Start Test</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+  let time = 120;
+  let interval;
+
+  function start(){
+    document.getElementById("area").disabled = false;
+    document.getElementById("area").value = "";
+    document.getElementById("result").innerHTML = "";
+    time = 120;
+    document.getElementById("time").innerHTML = time;
+
+    if(interval) clearInterval(interval);
+
+    interval = setInterval(function(){
+      time--;
+      document.getElementById("time").innerHTML = time;
+
+      if(time === 0){
+        clearInterval(interval);
+        finish();
+      }
+    },1000);
+  }
+
+  function finish(){
+    let text = document.getElementById("area").value;
+    let words = text.trim() === "" ? 0 : text.trim().split(" ").length;
+    let wpm = Math.round(words / 2);
+
+    document.getElementById("area").disabled = true;
+    document.getElementById("result").innerHTML =
+      "Words Typed: " + words + "<br>Speed: " + wpm + " WPM";
+  }
+</script>
+
+</body>
+</html>
