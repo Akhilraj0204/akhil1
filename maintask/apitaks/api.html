@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Restaurant Finder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ========== RESET ========== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+/* ========== BODY ========== */
+body{
+  background:#f9f9f9;
+  color:#333;
+}
+
+/* ========== HEADER ========== */
+header{
+  background:linear-gradient(135deg,#ff6b6b,#ff9f43);
+  padding:40px 20px;
+  text-align:center;
+  color:white;
+  animation: slideDown 1s ease;
+}
+
+header h1{
+  font-size:2.5rem;
+}
+
+header p{
+  margin-top:10px;
+  font-weight:300;
+}
+
+/* ========== SEARCH SECTION ========== */
+.search-section{
+  margin:40px auto;
+  max-width:600px;
+  display:flex;
+  gap:10px;
+  padding:0 20px;
+}
+
+.search-section input{
+  flex:1;
+  padding:15px;
+  border-radius:30px;
+  border:none;
+  outline:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.search-section button{
+  padding:15px 30px;
+  border:none;
+  border-radius:30px;
+  background:#ff6b6b;
+  color:white;
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.search-section button:hover{
+  background:#ff4757;
+  transform:scale(1.05);
+}
+
+/* ========== RESTAURANT CARDS ========== */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.1);
+  transition:0.4s;
+  animation: fadeUp 0.8s ease;
+}
+
+.card:hover{
+  transform:translateY(-15px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
+
+.card h3{
+  color:#ff6b6b;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  margin:5px 0;
+}
+
+.rating{
+  margin-top:10px;
+  font-weight:600;
+}
+
+/* ========== FOOTER ========== */
+footer{
+  background:#222;
+  color:#aaa;
+  text-align:center;
+  padding:30px;
+  margin-top:50px;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes slideDown{
+  from{transform:translateY(-50px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+
+@keyframes fadeUp{
+  from{transform:translateY(40px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>🍽️ Restaurant Finder</h1>
+  <p>Find the best restaurants by city or food type</p>
+</header>
+
+<!-- ===== SEARCH ===== -->
+<section class="search-section">
+  <input type="text" id="searchInput" placeholder="Search by city or cuisine...">
+  <button onclick="searchRestaurant()">Search</button>
+</section>
+
+<!-- ===== RESTAURANTS ===== -->
+<section class="container" id="restaurantList">
+  <!-- Cards injected by JS -->
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>© 2026 Restaurant Finder | Designed by Indu 💛</p>
+</footer>
+
+<script>
+/* ========== DATA (Mock API) ========== */
+const restaurants = [
+  {name:"Spice Hub", city:"Hyderabad", cuisine:"Indian", rating:4.5},
+  {name:"Pizza Palace", city:"Bangalore", cuisine:"Italian", rating:4.2},
+  {name:"Dragon Wok", city:"Chennai", cuisine:"Chinese", rating:4.3},
+  {name:"Burger Town", city:"Delhi", cuisine:"Fast Food", rating:4.0},
+  {name:"Sushi Zen", city:"Mumbai", cuisine:"Japanese", rating:4.6},
+];
+
+/* ========== DISPLAY RESTAURANTS ========== */
+function displayRestaurants(list){
+  const container = document.getElementById("restaurantList");
+  container.innerHTML = "";
+
+  if(list.length === 0){
+    container.innerHTML = "<p>No restaurants found ❌</p>";
+    return;
+  }
+
+  list.forEach(function(item){
+    container.innerHTML += `
+      <div class="card">
+        <h3>${item.name}</h3>
+        <p><strong>City:</strong> ${item.city}</p>
+        <p><strong>Cuisine:</strong> ${item.cuisine}</p>
+        <p class="rating">⭐ Rating: ${item.rating}</p>
+      </div>
+    `;
+  });
+}
+
+/* ========== SEARCH FUNCTION ========== */
+function searchRestaurant(){
+  const value = document.getElementById("searchInput").value.toLowerCase();
+
+  const filtered = restaurants.filter(function(item){
+    return item.city.toLowerCase().includes(value) ||
+           item.cuisine.toLowerCase().includes(value);
+  });
+
+  displayRestaurants(filtered);
+}
+
+/* Load all restaurants on start */
+displayRestaurants(restaurants);
+</script>
+
+</body>
+</html>
