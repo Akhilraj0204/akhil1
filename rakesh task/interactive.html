@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Web Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* ===== GLOBAL ===== */
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        /* ===== NAV ===== */
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .box {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .btn {
+            background: white;
+            border: 2px solid #6767db;
+            padding: 10px 229px;
+            font-size: 19px;
+            font-weight: 400;
+        }
+
+        /* ===== TODO ===== */
+        .todo input {
+            padding: 6px;
+            width: 75%;
+        }
+
+        .todo button {
+            padding: 6px 31px;
+            color: #4e4ee5;
+            background: white;
+            border: 2px solid #c1b6b6;
+            font-size: 15px;
+        }
+
+        .todo button:hover {
+            background: darkblue;
+            color: white;
+        }
+
+        .todo ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .todo li {
+            margin: 6px 0;
+        }
+
+        .todo li button {
+            float: right;
+        }
+
+        /* ===== TIMER ===== */
+        .timer {
+            text-align: center;
+        }
+
+        .timer button {
+            margin: 5px;
+            padding: 6px 31px;
+            color: #fefeff;
+            background: rgb(69, 73, 169);
+            border: 2px solid #c1b6b6;
+            font-size: 15px;
+        }
+
+        /* ===== FORM ===== */
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+           width: 2%;
+           padding: 8px;
+            margin-top: 4px; 
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+        }
+
+        textarea {
+            height: 80px;
+            width: 100%;
+        }
+
+        .error {
+            color: #c0392b;
+            font-size: 13px;
+        }
+
+        .success {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .check-group {
+            margin-top: 10px;
+        }
+
+        button.clear {
+            margin-top: 10px;
+    padding: 6px 12px;
+    background: white;
+    border: 2px solid #a89f9f;
+    font-size: 15px;
+        }
+        button.clear:hover{
+            background: #37379a;
+            color: white;
+        }
+
+        /* ===== MAP ===== */
+        .map iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 style="text-align:center">Interactive Web Project</h1>
+
+        <hr>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Dynamic</a>
+            <a href="#">Timer</a>
+            <a href="#">Contact Form</a>
+        </nav>
+
+        <hr>
+        <h2>About This Project</h2>
+        <hr>
+        <!-- ABOUT -->
+        <div class="grid">
+            <div class="box">
+                <p style="font-size: 18px;">This is a sample interactive web page buit using HTML and JavaScript.
+
+                    It features dynamic content manipulation, form validation, and local storage.</p>
+                <h3>Features Demonstrated:</h3>
+                <ul>
+                    <li>DOM manipulation</li>
+                    <li>Form validation</li>
+                    <li>Event handling</li>
+                    <li>Dynamic content updates</li>
+                    <li>Local storage</li>
+                </ul>
+            </div>
+
+            <div class="box map">
+                <iframe src="https://www.google.com/maps?q=San+Francisco&output=embed"></iframe>
+                <button class="btn" onclick="toggleMap()">Toggle Map</button>
+            </div>
+        </div>
+        <div class="grid">
+            <h2>Interactive To-Do List</h2>
+            <h2>Auto-Updating Timer</h2>
+        </div>
+        <hr>
+        <!-- TODO & TIMER -->
+        <div class="grid">
+            <div class="box todo">
+                <input id="taskInput" placeholder="New Task...">
+                <button class="btn1" onclick="addTask()">Add</button>
+                <ul id="taskList"></ul>
+                <p style="margin-top: 30px;"><small
+                        style=" width: 100%; ; border: 2px solid rgb(174 167 167);padding: 10px 106px;background: #fbfbc9;font-size: 15px;">Tasks
+                        are saved in your browser's local storage.</small></p>
+                <button style="margin-left: 180px;" onclick="clearTasks()">Clear All Tasks</button>
+            </div>
+
+            <div class="box timer">
+                <p style="text-align: left;margin-top: 0px;">This counter auto-updates every second:</p>
+                <p style="font-weight: 500; font-size: 30px;">Time elapsed: <span id="time">00:00:00</span></p>
+                <button onclick="pauseTimer()">Pause Timer</button>
+                <button onclick="resetTimer()">Reset Timer</button>
+            </div>
+        </div>
+        <div class="grid">
+            <h2>Feat Hessions & Videos</h2>
+            <h2>Contact Form</h2>
+        </div>
+        <hr>
+
+        <!-- CONTACT FORM -->
+        <div class="grid">
+            <div class="box">
+                <form onsubmit="return validateForm()">
+                    <label>Name:</label>
+                    <input style="width: 100%;" type="text" id="name">
+
+                    <label>Email:</label>
+                    <input style="width: 100%;" type="text" id="email">
+
+                    <label>Password:</label>
+                    <input style="width: 100%;" type="password" id="password">
+
+                    <label>Message:</label>
+                    <textarea></textarea>
+
+                    <div class="check-group">
+                        Subscribe to newsletter?
+                        <input type="checkbox"> Yes
+                        <input type="checkbox"> No
+                    </div>
+
+                    <div class="check-group">
+                        Preferred Contact:
+                        <input type="checkbox"> Email
+                        <input type="checkbox"> Phone
+                    </div>
+
+                    <button type="reset" class="clear">Clear Data</button>
+                    <button  class="clear" type="submit">Submit</button>
+
+                    <div class="success" id="successMsg"></div>
+                </form>
+            </div>
+
+            <div class="box map">
+                <img src="/rakesh task/tdp.png" alt="..." onclick="openMap()" width="100%">
+            </div>
+        </div>
+        <hr>
+        <footer>
+            © 2026 Interactive Web Project | your email: <a href="#">user@example.com</a> 
+            <br><br>
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </footer>
+
+    </div>
+
+    <script>
+        /* ===== MAP ===== */
+        
+function openMap() {
+  // Address in JS format
+  const address = "108/43 Vijaya Lakshmi Enclave 1st Floor H No 2 PJR Enclave Rd Gangaram ICRISAT Colony Hyderabad Telangana 500050";
+
+  // Convert address to Google Maps URL
+  const mapURL =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(address);
+
+  // Redirect to Google Maps
+  window.open(mapURL, "_blank"); // opens in new tab
+}
+
+        /* ===== TODO ===== */
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        const list = document.getElementById("taskList");
+
+        function renderTasks() {
+            list.innerHTML = "";
+            tasks.forEach((t, i) => {
+                list.innerHTML += `<li>${t}
+      <button onclick="removeTask(${i})">Remove</button>
+    </li>`;
+            });
+        }
+        function addTask() {
+            const val = taskInput.value.trim();
+            if (val) {
+                tasks.push(val);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+                taskInput.value = "";
+                renderTasks();
+            }
+        }
+        function removeTask(i) {
+            tasks.splice(i, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            renderTasks();
+        }
+        function clearTasks() {
+            tasks = [];
+            localStorage.clear();
+            renderTasks();
+        }
+        renderTasks();
+
+        /* ===== TIMER ===== */
+        let sec = 0;
+        let run = true;
+        setInterval(() => {
+            if (run) {
+                sec++;
+                let h = String(Math.floor(sec / 3600)).padStart(2, "0");
+                let m = String(Math.floor(sec % 3600 / 60)).padStart(2, "0");
+                let s = String(sec % 60).padStart(2, "0");
+                time.textContent = `${h}:${m}:${s}`;
+            }
+        }, 1000);
+
+        function pauseTimer() { run = !run; }
+        function resetTimer() { sec = 0; }
+
+        function validateForm() {
+            let valid = true;
+
+            nameErr.style.display = "none";
+            emailErr.style.display = "none";
+            passErr.style.display = "none";
+            successMsg.textContent = "";
+
+            if (name.value.trim() === "") {
+                nameErr.style.display = "block";
+                valid = false;
+            }
+            if (!email.value.includes("@")) {
+                emailErr.style.display = "block";
+                valid = false;
+            }
+            if (password.value.length < 6) {
+                passErr.style.display = "block";
+                valid = false;
+            }
+
+            if (valid) {
+                localStorage.setItem("contactData", JSON.stringify({
+                    name: name.value,
+                    email: email.value
+                }));
+                successMsg.textContent = "Your information is saved in this browser!";
+            }
+
+            return false;
+        }
+        function openMap() {
+                // Address in JS format
+                const address = "108/43 Vijaya Lakshmi Enclave 1st Floor H No 2 PJR Enclave Rd Gangaram ICRISAT Colony Hyderabad Telangana 500050";
+
+                // Convert address to Google Maps URL
+                const mapURL =
+                    "https://www.google.com/maps/search/?api=1&query=" +
+                    encodeURIComponent(address);
+
+                // Redirect to Google Maps
+                window.open(mapURL, "_blank"); // opens in new tab
+            }
+    </script>
+
+</body>
+
+</html>
