@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Formula 1 Racing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0b0b0b;
+    color: white;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1601924638867-3ec62a1d49c9") center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 2s;
+}
+
+.hero h1 {
+    font-size: 60px;
+    color: #ff1e1e;
+}
+
+.hero p {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.hero button {
+    padding: 14px 35px;
+    background: #ff1e1e;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: white;
+    color: black;
+}
+
+/* ---------- ABOUT ---------- */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 15px;
+    animation: slideLeft 1.5s;
+}
+
+.about div {
+    animation: slideRight 1.5s;
+}
+
+/* ---------- SLIDER ---------- */
+.slider {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.slides {
+    display: flex;
+    transition: 0.8s;
+}
+
+.slides img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 10px 18px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ---------- TEAMS ---------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #151515;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 30px rgba(255,30,30,0.5);
+}
+
+.card h3 {
+    padding: 15px;
+    color: #ff1e1e;
+}
+
+.card p {
+    padding: 0 15px 20px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background: black;
+    padding: 25px;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(40px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes slideLeft {
+    from {opacity:0; transform:translateX(-60px);}
+    to {opacity:1; transform:translateX(0);}
+}
+
+@keyframes slideRight {
+    from {opacity:0; transform:translateX(60px);}
+    to {opacity:1; transform:translateX(0);}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width: 900px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>FORMULA 1</h1>
+        <p>The fastest motorsport on earth</p>
+        <button onclick="scrollToSection()">Explore Racing</button>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about">
+        <img src="f1 racing.avif">
+        <div>
+            <h2>What is Formula 1?</h2>
+            <p>
+                Formula 1 (F1) is the pinnacle of motorsport, featuring the world’s
+                fastest cars, elite drivers, and cutting-edge technology.
+                Races are held across global circuits at speeds exceeding 350 km/h.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDER -->
+<section>
+    <h2 style="text-align:center; margin-bottom:40px;">Iconic F1 Moments</h2>
+    <div class="slider">
+        <div class="slides" id="slides">
+            <img src="f1-1.avif">
+            <img src="f1-2.avif">
+            <img src="f1-3.avif">
+        </div>
+        <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+        <button class="slider-btn next" onclick="nextSlide()">❯</button>
+    </div>
+</section>
+
+<!-- TEAMS -->
+<section>
+    <h2 style="text-align:center; margin-bottom:40px;">Top F1 Teams</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="f11.avif">
+            <h3>Ferrari</h3>
+            <p>Most iconic and historic F1 team with passionate global fans.</p>
+        </div>
+
+        <div class="card">
+            <img src="f12.avif">
+            <h3>Mercedes</h3>
+            <p>Dominated the hybrid era with record-breaking championships.</p>
+        </div>
+
+        <div class="card">
+            <img src="f13.avif">
+            <h3>Red Bull Racing</h3>
+            <p>Known for aggressive design, innovation, and young talent.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Formula 1 Racing | Educational & Demo Website</p>
+</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
+
+function nextSlide() {
+    index = (index + 1) % totalSlides;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+function prevSlide() {
+    index = (index - 1 + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
+
+setInterval(nextSlide, 4000);
+
+function scrollToSection() {
+    document.getElementById("about").scrollIntoView({behavior: "smooth"});
+}
+</script>
+
+</body>
+</html>
